@@ -1,0 +1,4556 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    color: black;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Header Styles */
+.header {
+    position: relative;
+    width: 100%;
+    height: 96px;
+    background-color: white;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.header-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    transition: padding 0.3s ease;
+}
+
+.logo {
+    height: 50px; /* Fixed height for better control */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the logo fits within the container */
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.nav {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav a {
+    font-weight: 500;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+    padding: 8px 12px;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 152, 105, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.nav a:hover {
+    color: #ff9869;
+    background-color: rgba(255, 152, 105, 0.1);
+    transform: translateY(-1px);
+}
+
+.nav a:hover::before {
+    left: 100%;
+}
+
+/* Mobile Menu Styles */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 1001;
+    transition: all 0.3s ease;
+}
+
+.hamburger:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.hamburger-line {
+    width: 30px;
+    height: 2px;
+    background-color: #000;
+    border-radius: 1px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.hamburger.active .hamburger-line:first-child {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.hamburger.active .hamburger-line:last-child {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.mobile-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 20px 30px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 152, 105, 0.2);
+}
+
+.mobile-nav.active {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.mobile-nav .nav {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+}
+
+.mobile-nav .nav a {
+    text-align: center;
+    padding: 12px 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-nav .nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 152, 105, 0.1), transparent);
+    transition: left 0.4s ease;
+}
+
+.mobile-nav .nav a:hover {
+    background-color: rgba(255, 152, 105, 0.1);
+    color: #ff9869;
+    transform: translateX(5px);
+    border-color: #ff9869;
+}
+
+.mobile-nav .nav a:hover::before {
+    left: 100%;
+}
+
+.mobile-nav .donate-btn {
+    width: 100%;
+    margin-top: 16px;
+    display: block !important;
+}
+
+.donate-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.donate-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.donate-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.donate-btn.primary {
+    background-color: #ff9869;
+    color: white;
+    width: 134px;
+    height: 42px;
+    box-shadow: 0 4px 15px rgba(255, 152, 105, 0.3);
+}
+
+.donate-btn.secondary {
+    background-color: #595959;
+    color: white;
+    width: 251px;
+    height: 55px;
+    font-size: 24px;
+    border-radius: 4px;
+    margin: 0;
+    align-self: flex-start;
+    box-shadow: 0 4px 15px rgba(89, 89, 89, 0.3);
+}
+
+.donate-btn.dark {
+    background-color: black;
+    color: white;
+    width: 284px;
+    height: 70px;
+    font-size: 24px;
+    border-radius: 6px;
+    margin: 54px auto 0;
+    display: block;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.donate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.donate-btn:active {
+    transform: translateY(0);
+    transition: transform 0.1s ease;
+}
+
+/* Hero Section */
+.hero-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: #f5f5f5; /* Fallback color */
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.hero .banner-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 80vh; /* Optional: Limit maximum height */
+    object-fit: contain; /* Ensures the entire image is visible */
+    object-position: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+    padding: 20px;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    margin: 0 auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .hero .banner-image {
+        max-height: 70vh;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero .banner-image {
+        max-height: 60vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero .banner-image {
+        max-height: 50vh;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero .banner-image {
+        max-height: 40vh;
+    }
+}
+
+/* Stats Section */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 107px 40px 67px;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.stats::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(183, 30, 30, 0.2), transparent);
+    transform: translateX(-50%);
+}
+
+.stats::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(183, 30, 30, 0.2), transparent);
+    transform: translateY(-50%);
+}
+
+.stat-item {
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+    position: relative;
+    padding: 20px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.stat-item:hover {
+    background: rgba(183, 30, 30, 0.05);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(183, 30, 30, 0.1);
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #b71e1e, #ff9869);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.stat-item:hover::before {
+    width: 80%;
+}
+
+.stat-value {
+    font-weight: 500;
+    font-size: 16px;
+    color: #b71e1e;
+    margin-bottom: 4px;
+    line-height: 1.2;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover .stat-value {
+    transform: scale(1.1);
+    color: #ff9869;
+}
+
+.stat-label {
+    font-weight: 500;
+    font-size: 16px;
+    color: #b71e1e;
+    line-height: 1.3;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover .stat-label {
+    color: #ff9869;
+}
+
+/* Causes Section */
+.causes {
+    padding: 80px 40px 0;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.causes::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(135deg, rgba(223, 255, 179, 0.1), transparent);
+    border-radius: 50px;
+    z-index: -1;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+    gap: 20px;
+    position: relative;
+}
+
+.section-title {
+    background-color: #dfffb3;
+    padding: 13px 29px;
+    font-weight: 500;
+    font-size: 40px;
+    color: black;
+    margin: 0;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.section-title:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(223, 255, 179, 0.4);
+}
+
+.section-title:hover::before {
+    left: 100%;
+}
+
+.nav-icon {
+    width: 46px;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+.nav-icon:hover {
+    background: rgba(255, 152, 105, 0.1);
+    transform: rotate(15deg) scale(1.1);
+}
+
+.nav-icon img {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.causes-grid {
+    display: flex;
+    gap: 45px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+}
+
+.causes-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.causes-grid-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 45px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.causes-grid {
+    display: flex;
+    gap: 45px;
+    margin-bottom: 0;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex: 1;
+}
+
+.causes-donate-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.cause-card {
+    flex: 1;
+    text-align: center;
+    min-width: 280px;
+    max-width: 400px;
+    cursor: pointer;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    background: white;
+    transition: all 0.4s ease;
+}
+
+.cause-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 152, 105, 0.1), rgba(255, 116, 51, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.cause-card:hover::before {
+    opacity: 1;
+}
+
+.cause-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.cause-image {
+    width: 100%;
+    height: 301px;
+    object-fit: cover;
+    margin-bottom: 14px;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.cause-card:hover .cause-image {
+    transform: scale(1.05);
+}
+
+.cause-title {
+    font-weight: 400;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    padding: 0 16px 20px;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.cause-card:hover .cause-title {
+    color: #ff9869;
+    transform: translateY(-2px);
+}
+
+/* Donate Button Overlay Styles */
+.donate-btn-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: linear-gradient(135deg, #ff9869, #ff7433);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    z-index: 10;
+    box-shadow: 0 4px 16px rgba(255, 152, 105, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.cause-card:hover .donate-btn-overlay {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.donate-btn-overlay:hover {
+    background: linear-gradient(135deg, #ff7433, #ff5722);
+    transform: translateX(-50%) translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 24px rgba(255, 152, 105, 0.5);
+}
+
+.donate-btn-overlay:active {
+    transform: translateX(-50%) translateY(-2px) scale(0.98);
+    box-shadow: 0 4px 16px rgba(255, 152, 105, 0.4);
+}
+
+/* Add pulse animation for attention */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 16px rgba(255, 152, 105, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(255, 152, 105, 0.5);
+    }
+    100% {
+        box-shadow: 0 4px 16px rgba(255, 152, 105, 0.3);
+    }
+}
+
+.cause-card:hover .donate-btn-overlay {
+    animation: pulse 2s infinite;
+}
+
+/* About Section */
+.about {
+    background-color: #fffeda;
+    padding: 79px 40px;
+    margin-top: 96px;
+    position: relative;
+    overflow: hidden;
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 152, 105, 0.1), transparent);
+    border-radius: 50%;
+}
+
+.about::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -15%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 116, 51, 0.1), transparent);
+    border-radius: 50%;
+}
+
+.about-content {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.about-title {
+    font-weight: 500;
+    font-size: 36px;
+    color: black;
+    margin-bottom: 37px;
+    position: relative;
+    display: inline-block;
+}
+
+.about-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ff9869, #ff7433);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.about:hover .about-title::after {
+    width: 100%;
+}
+
+.about-text {
+    font-weight: 400;
+    font-size: 20px;
+    color: black;
+    line-height: 1.5;
+    transition: all 0.3s ease;
+}
+
+.about:hover .about-text {
+    transform: translateY(-2px);
+}
+
+/* Impact Section */
+.impact {
+    padding: 80px 40px 0;
+    text-align: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.impact-title {
+    font-weight: 500;
+    font-size: 32px;
+    color: black;
+    margin-bottom: 16px;
+    position: relative;
+    display: inline-block;
+}
+
+.impact-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -20px;
+    right: -20px;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 152, 105, 0.1), transparent);
+    border-radius: 10px;
+    z-index: -1;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.impact:hover .impact-title::before {
+    transform: scaleX(1);
+}
+
+.impact-subtitle {
+    font-weight: 400;
+    font-size: 24px;
+    color: black;
+    margin-bottom: 72px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.impact:hover .impact-subtitle {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.impact-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px;
+    margin-bottom: 54px;
+    position: relative;
+}
+
+.impact-image.large {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.impact-image.large::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 152, 105, 0.2), rgba(255, 116, 51, 0.2));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.impact-image.large:hover {
+    transform: scale(1.05);
+}
+
+.impact-image.large:hover::before {
+    opacity: 1;
+}
+
+.impact-image.wide {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.impact-image.wide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 152, 105, 0.2), rgba(255, 116, 51, 0.2));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.impact-image.wide:hover {
+    transform: scale(1.05);
+}
+
+.impact-image.wide:hover::before {
+    opacity: 1;
+}
+
+/* Transparency Section */
+.transparency {
+    padding: 206px 40px 0;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.transparency::before {
+    content: '';
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    height: 300px;
+    background: linear-gradient(135deg, rgba(255, 116, 51, 0.05), transparent);
+    border-radius: 50px;
+    z-index: -1;
+}
+
+.transparency-header {
+    text-align: center;
+    margin-bottom: 116px;
+    position: relative;
+}
+
+.transparency-title {
+    font-weight: 400;
+    font-size: 32px;
+    color: black;
+    position: relative;
+    display: inline-block;
+}
+
+.transparency-title .highlight {
+    background-color: #ff7433;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.transparency-title .highlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.transparency-title .highlight:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 116, 51, 0.3);
+}
+
+.transparency-title .highlight:hover::before {
+    left: 100%;
+}
+
+.transparency-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 53px;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.transparency-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 152, 105, 0.05), transparent);
+    transition: left 0.8s ease;
+}
+
+.transparency-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.transparency-card:hover::before {
+    left: 100%;
+}
+
+.transparency-icon {
+    width: 248px;
+    height: 248px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.transparency-card:hover .transparency-icon {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.transparency-content {
+    padding-top: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.transparency-subtitle {
+    font-weight: 500;
+    font-size: 24px;
+    color: black;
+    margin-bottom: 32px;
+    position: relative;
+    display: inline-block;
+}
+
+.transparency-subtitle::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff9869, #ff7433);
+    transition: width 0.3s ease;
+}
+
+.transparency-card:hover .transparency-subtitle::after {
+    width: 100%;
+}
+
+.transparency-text {
+    font-weight: 400;
+    font-size: 24px;
+    color: black;
+    line-height: 1.4;
+    transition: all 0.3s ease;
+}
+
+.transparency-card:hover .transparency-text {
+    color: #333;
+    transform: translateX(5px);
+}
+
+/* Background Section */
+.background-section {
+    margin-top: 93px;
+    position: relative;
+    overflow: hidden;
+}
+
+.background-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+    z-index: 1;
+}
+
+.background-image {
+    width: 100%;
+    height: 454px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.background-section:hover .background-image {
+    transform: scale(1.02);
+}
+
+/* Contact Section */
+.contact {
+    padding: 80px 40px 30px;
+    max-width: 1450px;
+    background: transparent;
+    margin: 0 auto;
+    position: relative;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(135deg, rgba(0, 148, 255, 0.05), transparent);
+    border-radius: 50px;
+    z-index: -1;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.contact-header .contact-title {
+    font-weight: 500;
+    font-size: 48px;
+    color: #0094ff;
+    margin-bottom: 12px;
+    position: relative;
+    display: inline-block;
+}
+
+.contact-header .contact-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -20px;
+    right: -20px;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(0, 148, 255, 0.1), transparent);
+    border-radius: 15px;
+    z-index: -1;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.contact:hover .contact-header .contact-title::before {
+    transform: scaleX(1);
+}
+
+.contact-header .contact-subtitle {
+    font-weight: 400;
+    font-size: 20px;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.contact:hover .contact-header .contact-subtitle {
+    color: #0094ff;
+    transform: translateY(-2px);
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: stretch;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-items: center;
+    position: relative;
+}
+
+.contact-options-section {
+    background: white;
+    border-radius: 16px;
+    padding: 40px 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    min-height: 550px;
+    max-width: 450px;
+    width: 100%;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-options-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 148, 255, 0.05), transparent);
+    transition: left 0.8s ease;
+}
+
+.contact-options-section:hover::before {
+    left: 100%;
+}
+
+.contact-options-title {
+    font-weight: 600;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 32px;
+    position: relative;
+    display: inline-block;
+}
+
+.contact-options-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #0094ff, #00d4ff);
+    transition: width 0.3s ease;
+}
+
+.contact-options-section:hover .contact-options-title::after {
+    width: 100%;
+}
+
+.contact-options-section .contact-option {
+    display: flex;
+    align-items: center;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-options-section .contact-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    transition: left 0.5s ease;
+}
+
+.contact-options-section .contact-option:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    border-color: rgba(0, 148, 255, 0.3);
+}
+
+.contact-options-section .contact-option:hover::before {
+    left: 100%;
+}
+
+.contact-options-section .contact-option:last-child {
+    margin-bottom: 0;
+}
+
+.contact-options-section .contact-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 18px;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.contact-options-section .contact-option:hover .contact-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.contact-options-section .contact-option.whatsapp .contact-icon {
+    background: #dcf8c6;
+    color: #25d366;
+}
+
+.contact-options-section .contact-option.instagram .contact-icon {
+    background: #fce4ec;
+    color: #e1306c;
+}
+
+.contact-options-section .contact-option.phone .contact-icon {
+    background: #e3f2fd;
+    color: #3b82f6;
+}
+
+.contact-options-section .contact-option.email .contact-icon {
+    background: #fff3e0;
+    color: #f59e0b;
+}
+
+.contact-options-section .contact-option.address .contact-icon {
+    background: #e8f5e8;
+    color: #10b981;
+}
+
+.contact-option-content {
+    flex: 1;
+    min-width: 0;
+    transition: all 0.3s ease;
+}
+
+.contact-options-section .contact-option:hover .contact-option-content {
+    transform: translateX(5px);
+}
+
+.contact-option-content h4 {
+    font-weight: 600;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 4px;
+    line-height: 1.3;
+    transition: all 0.3s ease;
+}
+
+.contact-option-content p {
+    font-weight: 400;
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.4;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.contact-arrow {
+    font-size: 24px;
+    color: #9ca3af;
+    font-weight: 300;
+    margin-left: 12px;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.contact-options-section .contact-option:hover .contact-arrow {
+    transform: translateX(5px);
+    color: #0094ff;
+}
+
+.quick-contact-form {
+    background: white;
+    border-radius: 16px;
+    padding: 40px 36px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 550px;
+    justify-self: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.quick-contact-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.05), transparent);
+    transition: left 0.8s ease;
+}
+
+.quick-contact-form:hover::before {
+    left: 100%;
+}
+
+.quick-contact-form .form-title {
+    font-weight: 600;
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 28px;
+    position: relative;
+    display: inline-block;
+}
+
+.quick-contact-form .form-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #22c55e, #16a34a);
+    transition: width 0.3s ease;
+}
+
+.quick-contact-form:hover .form-title::after {
+    width: 100%;
+}
+
+.quick-contact-form .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.quick-contact-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.quick-contact-form .form-group label {
+    font-weight: 500;
+    font-size: 14px;
+    color: #374151;
+}
+
+.quick-contact-form .form-group input,
+.quick-contact-form .form-group textarea {
+    padding: 14px 18px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: #f9fafb;
+    color: #374151;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.quick-contact-form .form-group input::before,
+.quick-contact-form .form-group textarea::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.quick-contact-form .form-group input::placeholder,
+.quick-contact-form .form-group textarea::placeholder {
+    color: #9ca3af;
+}
+
+.quick-contact-form .form-group input:focus,
+.quick-contact-form .form-group textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), 0 4px 15px rgba(59, 130, 246, 0.1);
+    transform: translateY(-2px);
+}
+
+.quick-contact-form .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.quick-contact-form .send-message-btn {
+    background: #22c55e;
+    color: white;
+    border: none;
+    padding: 16px 28px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.quick-contact-form .send-message-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.quick-contact-form .send-message-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.quick-contact-form .send-message-btn:hover {
+    background: #16a34a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(34, 197, 94, 0.3);
+    scale: 1.02;
+}
+
+.quick-contact-form .send-message-btn:active {
+    transform: translateY(0);
+}
+
+.quick-contact-form .send-message-btn:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.quick-contact-form .form-success {
+    text-align: center;
+    padding: 32px;
+    background: #f0fdf4;
+    border-radius: 12px;
+    border: 1px solid #bbf7d0;
+    position: relative;
+    overflow: hidden;
+}
+
+.quick-contact-form .form-success::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.1), transparent);
+    transition: left 0.8s ease;
+}
+
+.quick-contact-form .form-success:hover::before {
+    left: 100%;
+}
+
+.quick-contact-form .success-icon {
+    width: 56px;
+    height: 56px;
+    background: #22c55e;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 auto 16px;
+    animation: successPulse 2s infinite;
+}
+
+@keyframes successPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.quick-contact-form .form-success h3 {
+    color: #166534;
+    font-size: 20px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    animation: slideInUp 0.5s ease;
+}
+
+@keyframes slideInUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.quick-contact-form .form-success p {
+    color: #166534;
+    font-size: 14px;
+    animation: slideInUp 0.5s ease 0.2s both;
+}
+
+/* Footer */
+.footer {
+    background-color: #f8f9fa;
+    padding: 80px 0 40px;
+    margin-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(135deg, rgba(255, 152, 105, 0.05), transparent);
+    z-index: -1;
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+}
+
+.footer-header {
+    margin-bottom: 40px;
+}
+
+.footer-title-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+}
+
+.footer-logo-img {
+    height: 60px; /* Slightly larger for footer */
+    width: auto;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.footer-logo-img:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.footer-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.footer-title-section:hover .footer-title {
+    color: #ff9869;
+}
+
+.footer-description {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+    margin: 0 0 40px 0;
+    transition: all 0.3s ease;
+}
+
+.footer:hover .footer-description {
+    color: #333;
+}
+
+.footer-social {
+    margin-bottom: 60px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    position: relative;
+}
+
+.social-icon {
+    width: 44px;
+    height: 44px;
+    background-color: #e9ecef;
+    color: #6c757d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 152, 105, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.social-icon:hover {
+    background-color: #ff9869;
+    color: white;
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(255, 152, 105, 0.3);
+}
+
+.social-icon:hover::before {
+    width: 100px;
+    height: 100px;
+}
+
+.footer-bottom {
+    border-top: 1px solid #e9ecef;
+    padding-top: 30px;
+    position: relative;
+}
+
+.footer-bottom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ff9869, transparent);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.footer:hover .footer-bottom::before {
+    width: 200px;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: #999;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.footer:hover .footer-bottom p {
+    color: #666;
+}
+
+/* Enhanced Button Animations */
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Donation Modal Styles */
+.donation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(-50px) scale(0.9);
+    transition: transform 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: #f3f4f6;
+    color: #333;
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.modal-header h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.modal-header p {
+    font-size: 16px;
+    color: #666;
+}
+
+.donation-amounts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.amount-btn {
+    padding: 16px;
+    border: 2px solid #e5e7eb;
+    background: white;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.amount-btn:hover {
+    border-color: #ff9869;
+    background: rgba(255, 152, 105, 0.05);
+}
+
+.amount-btn.selected {
+    border-color: #ff9869;
+    background: #ff9869;
+    color: white;
+}
+
+.custom-amount {
+    margin-bottom: 32px;
+}
+
+.amount-input {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.amount-input:focus {
+    outline: none;
+    border-color: #ff9869;
+    box-shadow: 0 0 0 3px rgba(255, 152, 105, 0.1);
+}
+
+.donation-methods h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.payment-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.payment-btn {
+    padding: 16px 12px;
+    border: 2px solid #e5e7eb;
+    background: white;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.payment-btn:hover {
+    border-color: #ff9869;
+    background: rgba(255, 152, 105, 0.05);
+}
+
+.payment-btn.selected {
+    border-color: #ff9869;
+    background: #ff9869;
+    color: white;
+}
+
+.payment-icon {
+    font-size: 24px;
+}
+
+.proceed-btn {
+    width: 100%;
+    padding: 16px;
+    background: #22c55e;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.proceed-btn:hover {
+    background: #16a34a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(34, 197, 94, 0.3);
+}
+
+.proceed-btn:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Thank You Message */
+.thank-you-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateY(20px);
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    z-index: 10001;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.success-icon {
+    width: 64px;
+    height: 64px;
+    background: #22c55e;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0 auto 24px;
+}
+
+.thank-you-content h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.thank-you-content p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+/* Loading Progress Bar */
+.loading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 152, 105, 0.2);
+    z-index: 10000;
+    transition: opacity 0.5s ease;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff9869, #ff7433);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #ff9869;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 16px rgba(255, 152, 105, 0.3);
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    background: #ff7433;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 152, 105, 0.4);
+}
+
+/* Notification System */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    max-width: 400px;
+    border-left: 4px solid #3b82f6;
+}
+
+.notification.success {
+    border-left-color: #22c55e;
+}
+
+.notification.error {
+    border-left-color: #ef4444;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.notification-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+    flex-shrink: 0;
+}
+
+.notification.success .notification-icon {
+    background: #22c55e;
+}
+
+.notification.error .notification-icon {
+    background: #ef4444;
+}
+
+.notification.info .notification-icon {
+    background: #3b82f6;
+}
+
+.notification-message {
+    flex: 1;
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.notification-close:hover {
+    background: #f3f4f6;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 1440px) {
+    .header-content {
+        padding: 0 50px;
+    }
+    
+    .hero {
+        padding: 50px 30px;
+        min-height: 400px;
+        flex-direction: row;
+        text-align: left;
+    }
+    
+    .stats {
+        padding: 90px 50px 60px;
+    }
+    
+    .causes {
+        padding: 80px 50px 0;
+    }
+    
+    .causes-grid {
+        gap: 35px;
+    }
+    
+    .cause-image {
+        height: 280px;
+    }
+    
+    .about {
+        padding: 80px 50px;
+    }
+    
+    .about-title {
+        font-size: 34px;
+    }
+    
+    .about-text {
+        font-size: 19px;
+    }
+    
+    .impact {
+        padding: 80px 50px 0;
+    }
+    
+    .impact-title {
+        font-size: 30px;
+    }
+    
+    .impact-subtitle {
+        font-size: 22px;
+    }
+    
+    .impact-image.large {
+        height: 320px;
+    }
+    
+    .impact-image.wide {
+        height: 280px;
+    }
+    
+    .transparency {
+        padding: 150px 50px 0;
+    }
+    
+    .transparency-title {
+        font-size: 30px;
+    }
+    
+    .transparency-subtitle {
+        font-size: 22px;
+    }
+    
+    .transparency-text {
+        font-size: 22px;
+    }
+    
+    .transparency-icon {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .contact {
+        padding: 80px 50px 20px;
+        min-height: 520px;
+    }
+    
+    .contact-header .contact-title {
+        font-size: 44px;
+    }
+    
+    .contact-header .contact-subtitle {
+        font-size: 19px;
+    }
+    
+    .footer {
+        padding: 80px 0 40px;
+    }
+    
+    .footer-content {
+        padding: 0 50px;
+    }
+    
+    .scroll-to-top {
+        bottom: 25px;
+        right: 25px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .header-content {
+        padding: 0 40px;
+    }
+    
+    .nav {
+        gap: 24px;
+    }
+    
+    .nav a {
+        font-size: 15px;
+        padding: 7px 11px;
+    }
+    
+    .donate-btn.primary {
+        width: 125px;
+        height: 40px;
+        font-size: 15px;
+    }
+    
+    .hero {
+        height: 380px;
+    }
+    
+    .stats {
+        padding: 80px 40px 50px;
+        gap: 25px 20px;
+    }
+    
+    .stat-item {
+        min-width: 200px;
+        padding: 18px;
+    }
+    
+    .stat-value {
+        font-size: 15px;
+    }
+    
+    .stat-label {
+        font-size: 15px;
+    }
+    
+    .causes {
+        padding: 70px 40px 0;
+    }
+    
+    .section-title {
+        font-size: 36px;
+        padding: 12px 26px;
+    }
+    
+    .nav-icon {
+        width: 36px;
+        height: 36px;
+        padding: 6px;
+    }
+    
+    .nav-icon img {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .causes-grid-wrapper {
+        gap: 30px;
+    }
+    
+    .causes-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .causes-grid-wrapper {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .causes-grid {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 850px;
+        margin: 0 auto;
+    }
+    
+    .cause-card {
+        min-width: 280px;
+    }
+    
+    .cause-image {
+        height: 260px;
+    }
+    
+    .cause-title {
+        font-size: 19px;
+    }
+    
+    .donate-btn.secondary {
+        margin: 0 auto;
+        display: block;
+        width: 251px;
+        height: 55px;
+        font-size: 22px;
+    }
+    
+    .about {
+        padding: 70px 40px;
+    }
+    
+    .about-title {
+        font-size: 32px;
+        margin-bottom: 32px;
+    }
+    
+    .about-text {
+        font-size: 18px;
+    }
+    
+    .impact {
+        padding: 70px 30px 0;
+    }
+    
+    .impact-title {
+        font-size: 28px;
+    }
+    
+    .impact-subtitle {
+        font-size: 20px;
+        margin-bottom: 60px;
+    }
+    
+    .impact-gallery {
+        gap: 15px;
+        margin-bottom: 50px;
+    }
+    
+    .impact-image.large {
+        height: 300px;
+    }
+    
+    .impact-image.wide {
+        height: 260px;
+    }
+    
+    .donate-btn.dark {
+        width: 260px;
+        height: 65px;
+        font-size: 22px;
+    }
+    
+    .transparency {
+        padding: 130px 40px 0;
+    }
+    
+    .transparency-header {
+        margin-bottom: 90px;
+    }
+    
+    .transparency-title {
+        font-size: 28px;
+    }
+    
+    .transparency-card {
+        gap: 40px;
+        padding: 35px;
+    }
+    
+    .transparency-icon {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .transparency-subtitle {
+        font-size: 22px;
+        margin-bottom: 28px;
+    }
+    
+    .transparency-text {
+        font-size: 20px;
+    }
+    
+    .background-section {
+        margin-top: 80px;
+    }
+    
+    .background-image {
+        height: 400px;
+    }
+    
+    .contact {
+        padding: 70px 40px 15px;
+        min-height: 500px;
+    }
+    
+    .contact-header .contact-title {
+        font-size: 42px;
+    }
+    
+    .contact-header .contact-subtitle {
+        font-size: 18px;
+    }
+    
+    .contact-container {
+        gap: 50px;
+        max-width: 1100px;
+    }
+    
+    .contact-options-section {
+        padding: 35px 30px;
+        min-height: 500px;
+    }
+    
+    .contact-options-title {
+        font-size: 22px;
+        margin-bottom: 28px;
+    }
+    
+    .quick-contact-form {
+        padding: 35px 30px;
+    }
+    
+    .quick-contact-form .form-title {
+        font-size: 24px;
+        margin-bottom: 26px;
+    }
+    
+    .footer {
+        padding: 70px 0 35px;
+        margin-top: 70px;
+    }
+    
+    .footer-title {
+        font-size: 22px;
+    }
+    
+    .footer-description {
+        font-size: 15px;
+        margin-bottom: 35px;
+    }
+    
+    .footer-social {
+        margin-bottom: 50px;
+    }
+    
+    .social-icons {
+        gap: 20px;
+    }
+    
+    .social-icon {
+        width: 42px;
+        height: 42px;
+    }
+    
+    .scroll-to-top {
+        bottom: 22px;
+        right: 22px;
+        width: 48px;
+        height: 48px;
+    }
+    
+    .modal-content {
+        padding: 28px;
+        max-width: 450px;
+    }
+    
+    .donation-amounts {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .payment-options {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+}
+
+@media (max-width: 992px) {
+    .header-content {
+        padding: 0 30px;
+    }
+    
+    .nav {
+        gap: 24px;
+    }
+    
+    .nav a {
+        font-size: 15px;
+        padding: 7px 11px;
+    }
+    
+    .donate-btn.primary {
+        width: 150px;
+        height: 45px;
+        font-size: 15px;
+    }
+    
+    .hero {
+        height: 350px;
+    }
+    
+    .stats {
+        padding: 80px 30px 50px;
+        gap: 20px 15px;
+    }
+    
+    .stat-item {
+        min-width: auto;
+        width: 100%;
+        max-width: 140px;
+        margin-bottom: 0;
+        padding: 14px;
+    }
+    
+    .stat-value {
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+    
+    .stat-label {
+        font-size: 13px;
+    }
+    
+    .causes {
+        padding: 60px 30px 0;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+    
+    .section-title {
+        font-size: 26px;
+        padding: 9px 18px;
+        order: 1;
+    }
+    
+    .nav-icon {
+        order: 2;
+        width: 36px;
+        height: 36px;
+        padding: 6px;
+    }
+    
+    .nav-icon img {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .causes-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        justify-items: center;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    
+    .causes-donate-section {
+        margin-top: 25px;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .cause-card {
+        min-width: auto;
+        max-width: none;
+        width: 100%;
+    }
+    
+    .cause-image {
+        height: 160px;
+    }
+    
+    .cause-title {
+        font-size: 15px;
+        padding: 0 12px 14px;
+    }
+    
+    .donate-btn.secondary {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+        display: block;
+        font-size: 18px;
+        height: 46px;
+    }
+    
+    .contact {
+        padding: 60px 30px 10px;
+        min-height: 470px;
+    }
+    
+    .contact-header .contact-title {
+        font-size: 40px;
+    }
+    
+    .contact-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        max-width: 800px;
+        justify-items: center;
+    }
+    
+    .contact-options-section {
+        padding: 32px 24px;
+        min-height: 450px;
+        width: 100%;
+        max-width: none;
+    }
+    
+    .quick-contact-form {
+        padding: 32px 24px;
+        width: 100%;
+        max-width: none;
+    }
+    
+    .contact-options-section .contact-option {
+        padding: 18px 22px;
+    }
+    
+    .contact-options-section .contact-icon {
+        width: 40px;
+        height: 40px;
+        margin-right: 18px;
+    }
+    
+    .contact-option-content h4 {
+        font-size: 15px;
+    }
+    
+    .contact-option-content p {
+        font-size: 13px;
+    }
+    
+    .scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+    
+    .modal-content {
+        padding: 24px;
+        max-width: 400px;
+    }
+    
+    .modal-header h2 {
+        font-size: 24px;
+    }
+    
+    .modal-header p {
+        font-size: 14px;
+    }
+    
+    .amount-btn {
+        padding: 14px;
+        font-size: 16px;
+    }
+    
+    .payment-btn {
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+    
+    .payment-icon {
+        font-size: 20px;
+    }
+    
+    .proceed-btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .thank-you-message {
+        padding: 16px;
+    }
+    
+    .success-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    
+    .thank-you-content h2 {
+        font-size: 16px;
+    }
+    
+    .thank-you-content p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        height: auto;
+        min-height: 80px;
+    }
+    
+    .causes-donate-section {
+        padding: 0 20px;
+        height: 96px;
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    
+    .header-content {
+        padding: 0 20px;
+        height: 80px;
+    }
+    
+    .hamburger {
+        display: flex;
+        right: 15px;
+    }
+    
+    .logo {
+        width: 42px;
+        height: 43px;
+    }
+    
+    .donate-btn.primary {
+        display: none;
+    }
+    
+    .nav {
+        display: none;
+    }
+    
+    .hero {
+        height: 280px;
+    }
+    
+    .mobile-nav {
+        display: block;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        padding: 18px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+    }
+    
+    .mobile-nav.active {
+        transform: translateY(0);
+    }
+    
+    .mobile-nav .nav {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .mobile-nav .nav a {
+        display: block;
+        padding: 11px 18px;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        text-align: center;
+        transition: all 0.3s ease;
+        font-size: 15px;
+    }
+    
+    .mobile-nav .nav a:hover {
+        background-color: #ff9869;
+        color: white;
+        border-color: #ff9869;
+    }
+    
+    .stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px 15px;
+        padding: 50px 20px 35px;
+        justify-items: center;
+    }
+    
+    .stat-item {
+        min-width: auto;
+        width: 100%;
+        max-width: 140px;
+        margin-bottom: 0;
+        padding: 14px;
+    }
+    
+    .stat-value {
+        font-size: 11px;
+        margin-bottom: 5px;
+    }
+    
+    .stat-label {
+        font-size: 11px;
+        line-height: 1.2;
+    }
+    
+    .causes {
+        padding: 50px 20px 0;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+    
+    .section-title {
+        font-size: 26px;
+        padding: 9px 18px;
+        order: 1;
+    }
+    
+    .nav-icon {
+        order: 2;
+        width: 36px;
+        height: 36px;
+        padding: 6px;
+    }
+    
+    .nav-icon img {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .causes-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        justify-items: center;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    
+    .causes-donate-section {
+        margin-top: 25px;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .cause-card {
+        min-width: auto;
+        max-width: none;
+        width: 100%;
+    }
+    
+    .cause-image {
+        height: 160px;
+    }
+    
+    .cause-title {
+        font-size: 15px;
+        padding: 0 12px 14px;
+    }
+    
+    .donate-btn.secondary {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+        display: block;
+        font-size: 18px;
+        height: 46px;
+    }
+    
+    .about {
+        padding: 50px 20px;
+        margin-top: 60px;
+    }
+    
+    .about-title {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+    
+    .about-text {
+        font-size: 16px;
+    }
+    
+    .impact {
+        padding: 45px 20px 0;
+    }
+    
+    .impact-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    
+    .impact-subtitle {
+        font-size: 18px;
+        margin-bottom: 35px;
+    }
+    
+    .impact-gallery {
+        gap: 10px;
+        margin-bottom: 35px;
+    }
+    
+    .impact-image.large {
+        height: 140px;
+    }
+    
+    .impact-image.wide {
+        grid-column: span 2;
+        height: 120px;
+    }
+    
+    .donate-btn.dark {
+        width: 100%;
+        max-width: 260px;
+        height: 55px;
+        font-size: 18px;
+        margin: 35px auto 0;
+    }
+    
+    .transparency {
+        padding: 90px 20px 0;
+    }
+    
+    .transparency-header {
+        margin-bottom: 60px;
+    }
+    
+    .transparency-title {
+        font-size: 24px;
+    }
+    
+    .transparency-card {
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+        padding: 25px;
+    }
+    
+    .transparency-icon {
+        width: 160px;
+        height: 160px;
+        margin: 0 auto;
+    }
+    
+    .transparency-subtitle {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    
+    .transparency-text {
+        font-size: 16px;
+    }
+    
+    .background-section {
+        margin-top: 50px;
+    }
+    
+    .background-image {
+        height: 250px;
+    }
+    
+    .contact {
+        padding: 35px 20px 0;
+        min-height: 380px;
+    }
+    
+    .contact-header {
+        margin-bottom: 35px;
+    }
+    
+    .contact-header .contact-title {
+        font-size: 26px;
+    }
+    
+    .contact-header .contact-subtitle {
+        font-size: 15px;
+    }
+    
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 100%;
+        justify-items: center;
+        padding: 0 20px;
+    }
+    
+    .contact-options-section {
+        padding: 20px 18px;
+        min-height: auto;
+        width: 100%;
+    }
+    
+    .contact-options-title {
+        font-size: 20px;
+        margin-bottom: 18px;
+    }
+    
+    .contact-options-section .contact-option {
+        padding: 14px 16px;
+        margin-bottom: 10px;
+    }
+    
+    .contact-options-section .contact-icon {
+        width: 32px;
+        height: 32px;
+        margin-right: 12px;
+    }
+    
+    .contact-option-content h4 {
+        font-size: 13px;
+    }
+    
+    .contact-option-content p {
+        font-size: 11px;
+    }
+    
+    .quick-contact-form {
+        padding: 20px 18px;
+        width: 100%;
+    }
+    
+    .quick-contact-form .form-title {
+        font-size: 20px;
+        margin-bottom: 18px;
+    }
+    
+    .quick-contact-form .contact-form {
+        gap: 12px;
+    }
+    
+    .quick-contact-form .form-group label {
+        font-size: 12px;
+    }
+    
+    .quick-contact-form .form-group input,
+    .quick-contact-form .form-group textarea {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+    
+    .quick-contact-form .form-group textarea {
+        min-height: 80px;
+    }
+    
+    .quick-contact-form .send-message-btn {
+        font-size: 13px;
+        padding: 12px 18px;
+    }
+    
+    .footer {
+        padding: 40px 0 20px;
+        margin-top: 40px;
+    }
+    
+    .footer-content {
+        padding: 0 20px;
+    }
+    
+    .footer-title {
+        font-size: 18px;
+    }
+    
+    .footer-description {
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+    
+    .footer-social {
+        margin-bottom: 30px;
+    }
+    
+    .social-icons {
+        gap: 14px;
+    }
+    
+    .social-icon {
+        width: 34px;
+        height: 34px;
+    }
+    
+    .scroll-to-top {
+        bottom: 10px;
+        right: 10px;
+        width: 36px;
+        height: 36px;
+        font-size: 12px;
+    }
+    
+    .modal-content {
+        padding: 18px;
+        max-width: 320px;
+    }
+    
+    .modal-header h2 {
+        font-size: 20px;
+    }
+    
+    .modal-header p {
+        font-size: 14px;
+    }
+    
+    .amount-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .payment-btn {
+        padding: 10px;
+        font-size: 12px;
+    }
+    
+    .payment-icon {
+        font-size: 18px;
+    }
+    
+    .proceed-btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .thank-you-message {
+        padding: 16px;
+    }
+    
+    .success-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    
+    .thank-you-content h2 {
+        font-size: 16px;
+    }
+    
+    .thank-you-content p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .header-content {
+        padding: 0 15px;
+        height: 70px;
+    }
+    
+    .logo {
+        width: 36px;
+        height: 37px;
+    }
+    
+    .hamburger {
+        right: 10px;
+        width: 24px;
+        height: 18px;
+    }
+    
+    .hamburger-line {
+        width: 24px;
+    }
+    
+    .donate-btn.primary {
+        width: 100px;
+        height: 32px;
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+    
+    .hero {
+        height: 220px;
+    }
+    
+    .mobile-nav {
+        top: 70px;
+        padding: 15px;
+    }
+    
+    .mobile-nav .nav {
+        gap: 12px;
+    }
+    
+    .mobile-nav .nav a {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+    
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px 10px;
+        padding: 35px 12px 25px;
+    }
+    
+    .stat-item {
+        max-width: none;
+        padding: 10px;
+    }
+    
+    .stat-value {
+        font-size: 10px;
+        margin-bottom: 3px;
+    }
+    
+    .stat-label {
+        font-size: 10px;
+    }
+    
+    .causes {
+        padding: 30px 12px 0;
+    }
+    
+    .section-title {
+        font-size: 22px;
+        padding: 7px 14px;
+    }
+    
+    .nav-icon {
+        width: 32px;
+        height: 32px;
+        padding: 4px;
+    }
+    
+    .nav-icon img {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .causes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        max-width: 400px;
+    }
+    
+    .cause-image {
+        height: 120px;
+    }
+    
+    .cause-title {
+        font-size: 12px;
+        padding: 0 8px 8px;
+    }
+    
+    .causes-donate-section {
+        margin-top: 20px;
+    }
+    
+    .donate-btn.secondary {
+        max-width: 200px;
+        height: 42px;
+        font-size: 16px;
+    }
+    
+    .about {
+        padding: 35px 12px;
+        margin-top: 40px;
+    }
+    
+    .about-title {
+        font-size: 22px;
+        margin-bottom: 18px;
+    }
+    
+    .about-text {
+        font-size: 14px;
+    }
+    
+    .impact-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+    
+    .impact-image.large {
+        height: 110px;
+    }
+    
+    .impact-image.wide {
+        grid-column: span 2;
+        height: 90px;
+    }
+    
+    .impact {
+        padding: 30px 12px 0;
+    }
+    
+    .impact-title {
+        font-size: 20px;
+        margin-bottom: 6px;
+    }
+    
+    .impact-subtitle {
+        font-size: 15px;
+        margin-bottom: 25px;
+    }
+    
+    .impact-gallery {
+        margin-bottom: 25px;
+    }
+    
+    .donate-btn.dark {
+        width: 100%;
+        max-width: 220px;
+        height: 46px;
+        font-size: 15px;
+        margin: 25px auto 0;
+    }
+    
+    .transparency {
+        padding: 60px 12px 0;
+    }
+    
+    .transparency-header {
+        margin-bottom: 40px;
+    }
+    
+    .transparency-title {
+        font-size: 20px;
+    }
+    
+    .transparency-card {
+        gap: 18px;
+        padding: 18px;
+    }
+    
+    .transparency-icon {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .transparency-subtitle {
+        font-size: 15px;
+        margin-bottom: 14px;
+    }
+    
+    .transparency-text {
+        font-size: 14px;
+    }
+    
+    .background-section {
+        margin-top: 35px;
+    }
+    
+    .background-image {
+        height: 180px;
+    }
+    
+    .contact {
+        padding: 25px 12px 0;
+        min-height: 280px;
+    }
+    
+    .contact-header {
+        margin-bottom: 25px;
+    }
+    
+    .contact-header .contact-title {
+        font-size: 24px;
+        line-height: 1.2;
+    }
+    
+    .contact-header .contact-subtitle {
+        font-size: 13px;
+    }
+    
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        max-width: 100%;
+        justify-items: center;
+        padding: 0 12px;
+    }
+    
+    .contact-options-section {
+        padding: 16px;
+        min-height: auto;
+        width: 100%;
+    }
+    
+    .contact-options-title {
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
+    
+    .contact-options-section .contact-option {
+        padding: 10px 12px;
+        margin-bottom: 8px;
+        border-radius: 10px;
+    }
+    
+    .contact-options-section .contact-icon {
+        width: 28px;
+        height: 28px;
+        margin-right: 10px;
+    }
+    
+    .contact-option-content h4 {
+        font-size: 12px;
+        margin-bottom: 1px;
+    }
+    
+    .contact-option-content p {
+        font-size: 10px;
+    }
+    
+    .contact-arrow {
+        font-size: 16px;
+        margin-left: 4px;
+    }
+    
+    .quick-contact-form {
+        padding: 16px;
+        width: 100%;
+    }
+    
+    .quick-contact-form .form-title {
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
+    
+    .quick-contact-form .contact-form {
+        gap: 10px;
+    }
+    
+    .quick-contact-form .form-group label {
+        font-size: 11px;
+    }
+    
+    .quick-contact-form .form-group input,
+    .quick-contact-form .form-group textarea {
+        padding: 10px;
+        font-size: 11px;
+    }
+    
+    .quick-contact-form .form-group textarea {
+        min-height: 70px;
+    }
+    
+    .quick-contact-form .send-message-btn {
+        font-size: 12px;
+        padding: 11px 16px;
+    }
+    
+    .footer {
+        padding: 35px 0 18px;
+        margin-top: 35px;
+    }
+    
+    .footer-content {
+        padding: 0 12px;
+    }
+    
+    .footer-header {
+        margin-bottom: 25px;
+    }
+    
+    .footer-title {
+        font-size: 16px;
+    }
+    
+    .footer-description {
+        font-size: 11px;
+        margin-bottom: 18px;
+    }
+    
+    .footer-social {
+        margin-bottom: 25px;
+    }
+    
+    .social-icons {
+        gap: 12px;
+    }
+    
+    .social-icon {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .scroll-to-top {
+        bottom: 8px;
+        right: 8px;
+        width: 34px;
+        height: 34px;
+        font-size: 11px;
+    }
+    
+    .modal-content {
+        padding: 16px;
+        max-width: 260px;
+    }
+    
+    .modal-header h2 {
+        font-size: 16px;
+    }
+    
+    .modal-header p {
+        font-size: 12px;
+    }
+    
+    .amount-btn {
+        padding: 6px;
+        font-size: 12px;
+    }
+    
+    .payment-btn {
+        padding: 6px;
+        font-size: 10px;
+    }
+    
+    .payment-icon {
+        font-size: 14px;
+    }
+    
+    .proceed-btn {
+        padding: 8px;
+        font-size: 12px;
+    }
+    
+    .thank-you-message {
+        padding: 16px;
+    }
+    
+    .success-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    
+    .thank-you-content h2 {
+        font-size: 16px;
+    }
+    
+    .thank-you-content p {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        min-height: 70px;
+    }
+    
+    .header-content {
+        padding: 0 10px;
+        height: 70px;
+    }
+    
+    .logo {
+        width: 32px;
+        height: 33px;
+    }
+    
+    .hamburger {
+        right: 8px;
+        width: 22px;
+        height: 16px;
+    }
+    
+    .hamburger-line {
+        width: 22px;
+    }
+    
+    .donate-btn.primary {
+        width: 100px;
+        height: 32px;
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+    
+    .hero {
+        height: 200px;
+    }
+    
+    .mobile-nav {
+        top: 70px;
+        padding: 15px;
+    }
+    
+    .mobile-nav .nav {
+        gap: 12px;
+    }
+    
+    .mobile-nav .nav a {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+    
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px 8px;
+        padding: 30px 10px 20px;
+    }
+    
+    .stat-item {
+        padding: 8px;
+    }
+    
+    .stat-value {
+        font-size: 10px;
+        margin-bottom: 2px;
+    }
+    
+    .stat-label {
+        font-size: 10px;
+    }
+    
+    .causes {
+        padding: 25px 10px 0;
+    }
+    
+    .section-title {
+        font-size: 20px;
+        padding: 6px 12px;
+    }
+    
+    .causes-grid {
+        gap: 12px;
+        max-width: 300px;
+    }
+    
+    .cause-image {
+        height: 100px;
+    }
+    
+    .cause-title {
+        font-size: 11px;
+        padding: 0 6px 6px;
+    }
+    
+    .donate-btn.secondary {
+        max-width: 200px;
+        height: 38px;
+        font-size: 14px;
+    }
+    
+    .about {
+        padding: 30px 10px;
+        margin-top: 35px;
+    }
+    
+    .about-title {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .about-text {
+        font-size: 13px;
+    }
+    
+    .impact {
+        padding: 25px 10px 0;
+    }
+    
+    .impact-title {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+    
+    .impact-subtitle {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    .impact-gallery {
+        gap: 5px;
+        margin-bottom: 20px;
+    }
+    
+    .impact-image.large {
+        height: 90px;
+    }
+    
+    .impact-image.wide {
+        height: 70px;
+    }
+    
+    .donate-btn.dark {
+        width: 100%;
+        max-width: 240px;
+        height: 50px;
+        font-size: 14px;
+        margin: 20px auto 0;
+    }
+    
+    .transparency {
+        padding: 50px 10px 0;
+    }
+    
+    .transparency-header {
+        margin-bottom: 30px;
+    }
+    
+    .transparency-title {
+        font-size: 18px;
+    }
+    
+    .transparency-card {
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .transparency-icon {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .transparency-subtitle {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+    
+    .transparency-text {
+        font-size: 13px;
+    }
+    
+    .background-section {
+        margin-top: 30px;
+    }
+    
+    .background-image {
+        height: 150px;
+    }
+    
+    .contact {
+        padding: 20px 10px 0;
+        min-height: 250px;
+    }
+    
+    .contact-header {
+        margin-bottom: 20px;
+    }
+    
+    .contact-header .contact-title {
+        font-size: 22px;
+    }
+    
+    .contact-header .contact-subtitle {
+        font-size: 12px;
+    }
+    
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        max-width: 100%;
+        justify-items: center;
+        padding: 0 10px;
+    }
+    
+    .contact-options-section {
+        padding: 14px;
+        width: 100%;
+    }
+    
+    .contact-options-title {
+        font-size: 15px;
+        margin-bottom: 14px;
+    }
+    
+    .contact-options-section .contact-option {
+        padding: 8px 10px;
+        margin-bottom: 6px;
+    }
+    
+    .contact-options-section .contact-icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+    }
+    
+    .contact-option-content h4 {
+        font-size: 11px;
+    }
+    
+    .contact-option-content p {
+        font-size: 9px;
+    }
+    
+    .quick-contact-form {
+        padding: 14px;
+        width: 100%;
+    }
+    
+    .quick-contact-form .form-title {
+        font-size: 15px;
+        margin-bottom: 14px;
+    }
+    
+    .quick-contact-form .contact-form {
+        gap: 8px;
+    }
+    
+    .quick-contact-form .form-group label {
+        font-size: 10px;
+    }
+    
+    .quick-contact-form .form-group input,
+    .quick-contact-form .form-group textarea {
+        padding: 8px;
+        font-size: 10px;
+    }
+    
+    .quick-contact-form .form-group textarea {
+        min-height: 60px;
+    }
+    
+    .quick-contact-form .send-message-btn {
+        font-size: 11px;
+        padding: 10px 14px;
+    }
+    
+    .footer {
+        padding: 30px 0 15px;
+        margin-top: 30px;
+    }
+    
+    .footer-content {
+        padding: 0 10px;
+    }
+    
+    .footer-title {
+        font-size: 15px;
+    }
+    
+    .footer-description {
+        font-size: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .footer-social {
+        margin-bottom: 20px;
+    }
+    
+    .social-icons {
+        gap: 10px;
+    }
+    
+    .social-icon {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .scroll-to-top {
+        bottom: 6px;
+        right: 6px;
+        width: 32px;
+        height: 32px;
+        font-size: 10px;
+    }
+    
+    .modal-content {
+        padding: 12px;
+        max-width: 260px;
+    }
+    
+    .modal-header h2 {
+        font-size: 15px;
+    }
+    
+    .modal-header p {
+        font-size: 11px;
+    }
+    
+    .amount-btn {
+        padding: 5px;
+        font-size: 11px;
+    }
+    
+    .payment-btn {
+        padding: 5px;
+        font-size: 9px;
+    }
+    
+    .payment-icon {
+        font-size: 12px;
+    }
+    
+    .proceed-btn {
+        padding: 7px;
+        font-size: 11px;
+    }
+    
+    .thank-you-message {
+        padding: 12px;
+    }
+    
+    .success-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .thank-you-content h2 {
+        font-size: 15px;
+    }
+    
+    .thank-you-content p {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 320px) {
+    .header-content {
+        padding: 0 10px;
+        height: 65px;
+    }
+    
+    .logo {
+        width: 32px;
+        height: 33px;
+    }
+    
+    .hamburger {
+        right: 8px;
+        width: 22px;
+        height: 16px;
+    }
+    
+    .hamburger-line {
+        width: 22px;
+    }
+    
+    .hero {
+        height: 200px;
+    }
+    
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px 8px;
+        padding: 30px 10px 20px;
+    }
+    
+    .stat-item {
+        padding: 8px;
+    }
+    
+    .stat-value {
+        font-size: 10px;
+        margin-bottom: 2px;
+    }
+    
+    .stat-label {
+        font-size: 10px;
+    }
+    
+    .causes {
+        padding: 25px 10px 0;
+    }
+    
+    .section-title {
+        font-size: 20px;
+        padding: 6px 12px;
+    }
+    
+    .causes-grid {
+        gap: 12px;
+        max-width: 300px;
+    }
+    
+    .cause-image {
+        height: 100px;
+    }
+    
+    .cause-title {
+        font-size: 11px;
+        padding: 0 6px 6px;
+    }
+    
+    .donate-btn.secondary {
+        max-width: 200px;
+        height: 38px;
+        font-size: 14px;
+    }
+    
+    .about {
+        padding: 30px 10px;
+        margin-top: 35px;
+    }
+    
+    .about-title {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .about-text {
+        font-size: 13px;
+    }
+    
+    .impact {
+        padding: 25px 10px 0;
+    }
+    
+    .impact-title {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+    
+    .impact-subtitle {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    .impact-gallery {
+        gap: 5px;
+        margin-bottom: 20px;
+    }
+    
+    .impact-image.large {
+        height: 90px;
+    }
+    
+    .impact-image.wide {
+        height: 70px;
+    }
+    
+    .donate-btn.dark {
+        width: 100%;
+        max-width: 240px;
+        height: 50px;
+        font-size: 14px;
+        margin: 20px auto 0;
+    }
+    
+    .transparency {
+        padding: 50px 10px 0;
+    }
+    
+    .transparency-header {
+        margin-bottom: 30px;
+    }
+    
+    .transparency-title {
+        font-size: 18px;
+    }
+    
+    .transparency-card {
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .transparency-icon {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .transparency-subtitle {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+    
+    .transparency-text {
+        font-size: 13px;
+    }
+    
+    .background-section {
+        margin-top: 30px;
+    }
+    
+    .background-image {
+        height: 150px;
+    }
+    
+    .contact {
+        padding: 20px 10px 0;
+        min-height: 250px;
+    }
+    
+    .contact-header {
+        margin-bottom: 20px;
+    }
+    
+    .contact-header .contact-title {
+        font-size: 22px;
+    }
+    
+    .contact-header .contact-subtitle {
+        font-size: 12px;
+    }
+    
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        max-width: 100%;
+        justify-items: center;
+        padding: 0 10px;
+    }
+    
+    .contact-options-section {
+        padding: 14px;
+        width: 100%;
+    }
+    
+    .contact-options-title {
+        font-size: 15px;
+        margin-bottom: 14px;
+    }
+    
+    .contact-options-section .contact-option {
+        padding: 8px 10px;
+        margin-bottom: 6px;
+    }
+    
+    .contact-options-section .contact-icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+    }
+    
+    .contact-option-content h4 {
+        font-size: 11px;
+    }
+    
+    .contact-option-content p {
+        font-size: 9px;
+    }
+    
+    .quick-contact-form {
+        padding: 14px;
+        width: 100%;
+    }
+    
+    .quick-contact-form .form-title {
+        font-size: 15px;
+        margin-bottom: 14px;
+    }
+    
+    .quick-contact-form .contact-form {
+        gap: 8px;
+    }
+    
+    .quick-contact-form .form-group label {
+        font-size: 10px;
+    }
+    
+    .quick-contact-form .form-group input,
+    .quick-contact-form .form-group textarea {
+        padding: 8px;
+        font-size: 10px;
+    }
+    
+    .quick-contact-form .form-group textarea {
+        min-height: 60px;
+    }
+    
+    .quick-contact-form .send-message-btn {
+        font-size: 11px;
+        padding: 10px 14px;
+    }
+    
+    .footer {
+        padding: 30px 0 15px;
+        margin-top: 30px;
+    }
+    
+    .footer-content {
+        padding: 0 10px;
+    }
+    
+    .footer-title {
+        font-size: 15px;
+    }
+    
+    .footer-description {
+        font-size: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .footer-social {
+        margin-bottom: 20px;
+    }
+    
+    .social-icons {
+        gap: 10px;
+    }
+    
+    .social-icon {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .scroll-to-top {
+        bottom: 6px;
+        right: 6px;
+        width: 32px;
+        height: 32px;
+        font-size: 10px;
+    }
+    
+    .modal-content {
+        padding: 12px;
+        max-width: 260px;
+    }
+    
+    .modal-header h2 {
+        font-size: 15px;
+    }
+    
+    .modal-header p {
+        font-size: 11px;
+    }
+    
+    .amount-btn {
+        padding: 5px;
+        font-size: 11px;
+    }
+    
+    .payment-btn {
+        padding: 5px;
+        font-size: 9px;
+    }
+    
+    .payment-icon {
+        font-size: 12px;
+    }
+    
+    .proceed-btn {
+        padding: 7px;
+        font-size: 11px;
+    }
+    
+    .thank-you-message {
+        padding: 12px;
+    }
+    
+    .success-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .thank-you-content h2 {
+        font-size: 15px;
+    }
+    
+    .thank-you-content p {
+        font-size: 10px;
+    }
+}
+
+/* Additional animations and micro-interactions */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40%, 43% {
+        transform: translateY(-10px);
+    }
+    70% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Utility classes for animations */
+.animate-fadeInUp {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.animate-slideInLeft {
+    animation: slideInLeft 0.6s ease forwards;
+}
+
+.animate-slideInRight {
+    animation: slideInRight 0.6s ease forwards;
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
+
+.animate-bounce {
+    animation: bounce 2s infinite;
+}
+
+/* Improved focus states for accessibility */
+*:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+button:focus,
+.donate-btn:focus {
+    outline: 2px solid #ff9869;
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .nav a {
+        border: 1px solid currentColor;
+    }
+    
+    .donate-btn {
+        border: 2px solid currentColor;
+    }
+    
+    .cause-card {
+        border: 2px solid #333;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .scroll-to-top {
+        animation: none;
+    }
+    
+    .hero-image {
+        transform: none !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    .header,
+    .mobile-nav,
+    .scroll-to-top,
+    .donate-btn {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+        color: black;
+        background: white;
+    }
+    
+    .causes,
+    .about,
+    .impact,
+    .transparency,
+    .contact {
+        page-break-inside: avoid;
+        margin-bottom: 20pt;
+    }
+    
+    .cause-card,
+    .transparency-card {
+        border: 1pt solid #ccc;
+        page-break-inside: avoid;
+    }
+}
+
+/* Dark mode support (if needed in future) */
+@media (prefers-color-scheme: dark) {
+    /* Dark mode styles would go here */
+}
+
+/* Stack contact sections vertically on small screens */
+@media (max-width: 576px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        max-width: 100%;
+        justify-items: stretch;
+    }
+    
+    .contact-options-section,
+    .quick-contact-form {
+        max-width: none;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 100%;
+        justify-items: stretch;
+        padding: 0 15px;
+    }
+    
+    .contact-options-section {
+        order: 1;
+    }
+    
+    .quick-contact-form {
+        order: 2;
+    }
+}
+
+@media (max-width: 320px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        max-width: 100%;
+        justify-items: stretch;
+        padding: 0 10px;
+    }
+    
+    .contact-options-section,
+    .quick-contact-form {
+        width: 100%;
+        padding: 16px;
+    }
+    
+    .contact-option {
+        padding: 12px;
+    }
+    
+    .contact-option-content h4 {
+        font-size: 12px;
+    }
+    
+    .contact-option-content p {
+        font-size: 10px;
+    }
+    
+    .form-title {
+        font-size: 16px;
+    }
+    
+    .form-group label {
+        font-size: 11px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+}
+
+/* Donate button in certifications page */
+.certifications-hero + .certificates-grid .donate-btn,
+.certifications .donate-btn,
+.certifications-hero .donate-btn {
+    text-decoration: none !important;
+}
+
+/* Ensure the anchor tag wrapping the button doesn't show underline */
+.certifications a[href*="donate.html"] {
+    text-decoration: none !important;
+}
+
+/* Mobile specific styles */
+.mobile-nav .donate-btn {
+    text-decoration: none !important;
+}
+
+/* Hover state for all donate buttons */
+.donate-btn:hover {
+    text-decoration: none !important;
+}
+.hero-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner-image {
+    width: 100%;
+    height: auto; /* Keeps aspect ratio */
+    display: block;
+    object-fit: cover; /* Ensures no empty spaces */
+}
+
+.banner-image {
+    filter: contrast(110%) brightness(105%) saturate(110%);
+    image-rendering: -webkit-optimize-contrast; /* For some browsers */
+}
+
+.background-image{
+    width: 100%;
+    height: auto; 
+    display: block;
+    object-fit: cover;
+}

@@ -1,0 +1,23 @@
+[build]
+  publish = "."
+  command = "echo 'No build step required'"
+
+[[redirects]]
+  from = "/causes"
+  to = "/causes.html"
+  status = 200
+
+[[redirects]]
+  from = "/achievements"
+  to = "/achievements.html"
+  status = 200
+
+[[redirects]]
+  from = "/donate"
+  to = "/donate.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

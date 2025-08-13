@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Vinayaka Foundation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <img src="public/logo/logo.png" alt="Sri Vinayaka Foundation Logo" class="logo">
+                
+                <nav class="nav">
+                    <a href="index.html">Home</a>
+                    <a href="causes.html">Causes</a>
+                    <a href="achievements.html">Our Events</a>
+                    <a href="certifications.html">Achievements</a>
+                    <a href="index.html#contact">Contact Us</a>
+                </nav>
+
+                <button class="donate-btn primary">Donate Now</button>
+                
+                <!-- Mobile Menu Button -->
+                <button class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div class="mobile-nav">
+                <nav class="nav">
+                    <a href="index.html">Home</a>
+                    <a href="causes.html">Causes</a>
+                    <a href="achievements.html">Our Events</a>
+                    <a href="certifications.html">Achievements</a>
+                    <a href="index.html#contact">Contact Us</a>
+                </nav>
+                <a href="donate.html" class="donate-btn primary mobile-donate-btn">Donate Now</a>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <div class="hero-container">
+                <img src="public/banner/banner.jpg" alt="Community Support Banner" class="banner-image">
+        </div>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="stat-item">
+                <div class="stat-value">6.52 Lakh+</div>
+                <div class="stat-label">Active Donors</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">₹43.46 Cr+</div>
+                <div class="stat-label">Donation Raised</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">115.94 Lakhs+</div>
+                <div class="stat-label">Meals Served</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">6.73 Lakh+</div>
+                <div class="stat-label">Donations Made</div>
+            </div>
+        </section>
+
+        <!-- Our Causes Section -->
+        <section class="causes" id="causes">
+            <div class="section-header">
+                <h2 class="section-title">Our Causes</h2>
+                <div class="carousel-nav">
+                    <button class="carousel-nav-btn" id="prevBtn" aria-label="Previous slide">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                        </svg>
+                    </button>
+                    <button class="carousel-nav-btn" id="nextBtn" aria-label="Next slide">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="causes-content">
+                <div class="causes-carousel-container">
+                    <div class="causes-grid" role="region" aria-label="Causes carousel" tabindex="0">
+                        <div class="cause-card">
+                            <div class="cause-overlay"></div>
+                            <img src="https://i.postimg.cc/TwwNxr7c/IMG20250113155454-01.jpg" alt="Food & Nutrition" class="cause-image">
+                            <h3 class="cause-title">Food & Nutrition</h3>
+                            <button class="donate-btn-overlay" data-cause="food">
+                                <span>Donate Now</span>
+                            </button>
+                        </div>
+                        <div class="cause-card">
+                            <div class="cause-overlay"></div>
+                            <img src="https://i.postimg.cc/MXk91gWs/IMG20250413124518-01.jpg" alt="Animal Rescue & Care" class="cause-image">
+                            <h3 class="cause-title">Animal Rescue & Care</h3>
+                            <button class="donate-btn-overlay" data-cause="animal">
+                                <span>Donate Now</span>
+                            </button>
+                        </div>
+                        <div class="cause-card">
+                            <div class="cause-overlay"></div>
+                            <img src="https://i.postimg.cc/3N0L43H4/IMG20250420095631-01.jpg" alt="Orphanage Care & Support" class="cause-image">
+                            <h3 class="cause-title">Orphanage Care & Support</h3>
+                            <button class="donate-btn-overlay" data-cause="orphanage">
+                                <span>Donate Now</span>
+                            </button>
+                        </div>
+                        <div class="cause-card">
+                            <div class="cause-overlay"></div>
+                            <img src="https://i.postimg.cc/44KZbtft/IMG20250429180424.jpg" alt="Education for Children" class="cause-image">
+                            <h3 class="cause-title">Education for Children</h3>
+                            <button class="donate-btn-overlay" data-cause="education">
+                                <span>Donate Now</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scroll-progress">
+                    <div class="scroll-progress-fill"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <div class="about-content">
+                <h2 class="about-title">About Sri Vinayaka Foundation</h2>
+                <p class="about-text">
+                    A warm introductory section sharing the mission to serve food to the needy, 
+                    provide medical care for animals, support children's education, and shelter orphans.
+                </p>
+            </div>
+        </section>
+
+         <!-- Our Impact Section -->
+         <section class="impact" id="impact">
+            <div class="impact-header">
+                <h2 class="impact-title">Our Impact Section</h2>
+                <p class="impact-subtitle">Highlight key stats and stories</p>
+            </div>
+
+            <div class="impact-gallery">
+                <img src="https://i.postimg.cc/LXbZfvQb/IMG20240218142551-01.jpg" alt="Impact Image 1" class="impact-image large">
+                <img src="https://i.postimg.cc/z3mb2vrw/IMG20241002175844.jpg" alt="Impact Image 2" class="impact-image large">
+                <img src="https://i.postimg.cc/tJnnzPLC/IMG20250125181706-01.jpg" alt="Impact Image 3" class="impact-image wide">
+            </div>
+
+            <button class="donate-btn dark">Donate Now</button>
+        </section>
+
+        <!-- Transparency Section -->
+        <section class="transparency">
+            <div class="transparency-header">
+                <h2 class="transparency-title">
+                    Our Commitment to <span class="highlight">Transparency</span>
+                </h2>
+            </div>
+
+            <div class="transparency-card">
+                <img src="/image-3.png" alt="Transparency Icon" class="transparency-icon">
+                <div class="transparency-content">
+                    <h3 class="transparency-subtitle">Donor Recognition:</h3>
+                    <p class="transparency-text">
+                        Every donation is acknowledged with the donor's name, 
+                        creating a transparent record of contributions.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Background Image Section -->
+        <section class="background-section">
+            <img src="public/banner/banner.jpg" alt="Background" class="background-image">
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="contact-header">
+                <h2 class="contact-title">Get In Touch</h2>
+                <p class="contact-subtitle">Reach out us. We are here to help you.</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-options-section">
+                    <h3 class="contact-options-title">Contact Options</h3>
+                    
+                    <div class="contact-option whatsapp">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-option-content">
+                            <h4>Chat with us on WhatsApp</h4>
+                            <p>Quick responses & instant support</p>
+                        </div>
+                        <div class="contact-arrow">›</div>
+                    </div>
+                    
+                    <div class="contact-option instagram">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-option-content">
+                            <h4>Send us a DM on Instagram</h4>
+                            <p>Follow us for updates & stories</p>
+                        </div>
+                        <div class="contact-arrow">›</div>
+                    </div>
+                    
+                    <div class="contact-option phone">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-option-content">
+                            <h4>Get on Call with us</h4>
+                            <p>Direct conversation with our team</p>
+                        </div>
+                        <div class="contact-arrow">›</div>
+                    </div>
+                    
+                    <div class="contact-option email">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-option-content">
+                            <h4>Send us an Email</h4>
+                            <p>office@vinayaka.foundation</p>
+                        </div>
+                        <div class="contact-arrow">›</div>
+                    </div>
+                    
+                    <div class="contact-option address">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-option-content">
+                            <h4>Registered Address</h4>
+                            <p>No.6, Dhanammal Street,<br>Spurtank Road, Chetpet,<br>Chennai 600-031</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quick-contact-form">
+                    <h3 class="form-title">Quick Contact Form</h3>
+                    
+                    <form class="contact-form" id="quickContactForm">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="address">Address *</label>
+                            <input type="text" id="address" name="address" placeholder="Enter your address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="caseDescription">Case Description *</label>
+                            <textarea id="caseDescription" name="caseDescription" rows="4" placeholder="Please describe your case or inquiry in detail..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="send-message-btn">
+                            <span class="btn-text">Send Message</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                            </svg>
+                        </button>
+                    </form>
+                    
+                    <div class="form-success" id="quickFormSuccess" style="display: none;">
+                        <div class="success-icon">✓</div>
+                        <h3>Message Sent Successfully!</h3>
+                        <p>Thank you for contacting us. We'll get back to you soon.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-header">
+                    <div class="footer-title-section">
+                        <img src="public/logo/logo.png" alt="Sri Vinayaka Foundation" class="footer-logo-img">
+                        <h2 class="footer-title">Sri Vinayaka Foundation</h2>
+                    </div>
+                    <p class="footer-description">Dedicated to serving humanity with compassion and care.</p>
+                </div>
+                
+                <div class="footer-social">
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" data-platform="facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        
+                        <a href="#" class="social-icon" data-platform="twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        
+                        <a href="#" class="social-icon" data-platform="instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </a>
+                        
+                        <a href="#" class="social-icon" data-platform="linkedin">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Sri Vinayaka Foundation. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
