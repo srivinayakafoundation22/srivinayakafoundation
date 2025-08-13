@@ -3,6 +3,10 @@
   "outputDirectory": ".",
   "rewrites": [
     {
+  "source": "/(.*)",
+  "destination": "/index.html"
+    },
+    {
       "source": "/causes",
       "destination": "/causes.html"
     },
