@@ -1,22 +1,10 @@
 {
   "buildCommand": "echo 'No build step required'",
   "outputDirectory": ".",
-  "redirects": [
-    {
-      "source": "http://www.srivinayakafoundation.org/:path*",
-      "destination": "https://srivinayakafoundation.org/:path*",
-      "permanent": true
-    },
-    {
-      "source": "http://srivinayakafoundation.org/:path*",
-      "destination": "https://srivinayakafoundation.org/:path*",
-      "permanent": true
-    }
-  ],
   "rewrites": [
     {
-      "source": "/",
-      "destination": "/index.html"
+  "source": "/(.*)",
+  "destination": "/index.html"
     },
     {
       "source": "/causes",
@@ -33,21 +21,6 @@
     {
       "source": "/achievements/",
       "destination": "/achievements.html"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" }
-      ]
     }
   ]
 }
