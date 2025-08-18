@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - Sri Vinayaka Foundation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="donate-page.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <img src="public/logo/logo.png" alt="Sri Vinayaka Foundation Logo" class="logo">
+                
+                <nav class="nav">
+                    <a href="index.html">Home</a>
+                    <a href="causes.html">Causes</a>
+                    <a href="achievements.html">Our Events</a>
+                    <a href="certifications.html">Achievements</a>
+                    <a href="index.html#contact">Contact Us</a>
+                </nav>
+
+                <div class="header-actions">
+                    <div class="currency-selector">
+                        <span>INR(₹)</span>
+                        <svg width="12" height="8" viewBox="0 0 12 8" fill="currentColor">
+                            <path d="M6 8L0 0h12L6 8z"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="hamburger">☰</div>
+            </div>
+            
+            <div class="mobile-nav">
+                <nav class="nav">
+                    <a href="index.html">Home</a>
+                    <a href="causes.html">Causes</a>
+                    <a href="achievements.html">Our Events</a>
+                    <a href="certifications.html">Achievements</a>
+                    <a href="index.html#contact">Contact Us</a>
+                </nav>
+                <div class="mobile-header-actions">
+                    <div class="currency-selector">
+                        <span>INR(₹)</span>
+                        <svg width="12" height="8" viewBox="0 0 12 8" fill="currentColor">
+                            <path d="M6 8L0 0h12L6 8z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="donate-main">
+            <div class="donate-container">
+                <!-- Left Section -->
+                <div class="donation-form-section">
+                    <div class="donation-amount-section">
+                        <h2 class="section-title">Donation amount</h2>
+                        
+                        <div class="amount-options">
+                            <button class="amount-btn" data-amount="1000">₹1,000</button>
+                            <button class="amount-btn popular" data-amount="2500">
+                                <span class="popular-label">Popular</span>
+                                ₹2,500
+                            </button>
+                            <button class="amount-btn" data-amount="5000">₹5,000</button>
+                        </div>
+                        
+                        <div class="custom-amount-section">
+                            <div class="custom-amount-input">
+                                <span class="currency-symbol">₹</span>
+                                <input type="number" placeholder="Other amount - ₹300 or more" class="amount-input" min="300">
+                            </div>
+                        </div>
+                        
+                        <div class="give-tip-section">
+                            <div class="tip-header">
+                                <span class="tip-label">Give Tip:</span>
+                                <div class="tip-percentage">
+                                    <span class="tip-percent">8%</span>
+                                    <svg width="12" height="8" viewBox="0 0 12 8" fill="currentColor">
+                                        <path d="M6 8L0 0h12L6 8z"/>
+                                    </svg>
+                                </div>
+                                <span class="tip-amount">₹200</span>
+                            </div>
+                        </div>
+                        
+                        <div class="location-info">
+                            <div class="location-check">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                                </svg>
+                                <span>You're an Indian</span>
+                            </div>
+                            <p class="location-desc">living in India and donating in INR</p>
+                        </div>
+                    </div>
+                    
+                    <div class="donor-details-section">
+                        <h3 class="details-title">Your Details</h3>
+                        
+                        <form class="donor-form" id="donorForm">
+                            <div class="form-group">
+                                <label for="fullName">Full Name*</label>
+                                <input type="text" id="fullName" name="fullName" placeholder="eg. Raghu Kumar" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email*</label>
+                                <input type="email" id="email" name="email" placeholder="eg. raghu@example.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone*</label>
+                                <input type="tel" id="phone" name="phone" placeholder="eg. +91 9876543210" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">Address*</label>
+                                <textarea id="address" name="address" placeholder="Enter your complete address" required></textarea>
+                            </div>
+                            
+                            <div class="anonymous-option">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="anonymous" name="anonymous">
+                                    <span class="checkmark"></span>
+                                    Make my donation anonymous
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Right Section -->
+                <div class="donation-summary-section">
+                    <div class="cause-card">
+                        <div class="cause-image">
+                            <img src="https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop" alt="Sri Vinayaka Foundation Mission">
+                            <div class="foundation-logo">
+                                <img src="public/logo/logo.png" alt="Foundation Logo">
+                            </div>
+                        </div>
+                        <div class="cause-content">
+                            <h3 class="cause-title">Join Sri Vinayaka Foundation's mission to serve food to the needy, care for animals, and support children's education...</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="donation-summary">
+                        <div class="summary-row">
+                            <span class="summary-label">Donation Amount</span>
+                            <span class="summary-value" id="donationAmount">₹2,500</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Give Tip : 8 %</span>
+                            <span class="summary-value" id="tipAmount">₹200</span>
+                        </div>
+                        <div class="summary-divider"></div>
+                        <div class="summary-row total">
+                            <span class="summary-label">Total Donation</span>
+                            <span class="summary-value" id="totalAmount">₹2,700</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tax-certificate">
+                        <div class="certificate-check">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                            </svg>
+                            <span>Get Indian tax certificate for your donation</span>
+                        </div>
+                    </div>
+                    
+                    <button class="proceed-btn" id="proceedBtn">
+                        Proceed to pay ₹2,700
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </button>
+                    
+                    <p class="security-note">All payments go through a secure gateway</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-header">
+                    <div class="footer-title-section">
+                        <img src="public/logo/logo.png" alt="Sri Vinayaka Foundation" class="footer-logo-img">
+                        <h2 class="footer-title">Sri Vinayaka Foundation</h2>
+                    </div>
+                    <p class="footer-description">Dedicated to serving humanity with compassion and care.</p>
+                </div>
+                
+                <div class="footer-social">
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" data-platform="facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        
+                        <a href="#" class="social-icon" data-platform="twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        
+                        <a href="#" class="social-icon" data-platform="instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        
+                        <a href="#" class="social-icon" data-platform="linkedin">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Sri Vinayaka Foundation. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="donate-script.js"></script>
+</body>
+</html>

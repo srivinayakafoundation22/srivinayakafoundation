@@ -1,0 +1,9 @@
+{
+  "name": "sri-vinayaka-foundation",
+  "version": "1.0.0",
+  "description": "Sri Vinayaka Foundation website - pure HTML/CSS/JS",
+  "scripts": {
+    "start": "node server.js",
+    "serve": "npx serve"
+  }
+}

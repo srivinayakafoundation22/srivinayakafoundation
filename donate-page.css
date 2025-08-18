@@ -1,0 +1,719 @@
+/* Donate Page Specific Styles */
+
+/* Header Updates */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Navigation active state for donate page */
+.nav a.active {
+    color: #ff7433 !important;
+    background: linear-gradient(135deg, rgba(255, 152, 105, 0.2), rgba(255, 116, 51, 0.15)) !important;
+    border: 2px solid rgba(255, 152, 105, 0.3) !important;
+    font-weight: 600 !important;
+    box-shadow: 0 4px 16px rgba(255, 152, 105, 0.25) !important;
+    transform: translateY(-2px) !important;
+}
+
+.currency-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.currency-selector:hover {
+    background-color: #f3f4f6;
+}
+
+.currency-selector svg {
+    width: 12px;
+    height: 8px;
+    opacity: 0.7;
+}
+
+.mobile-header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* Main Content */
+.donate-main {
+    min-height: calc(100vh - 96px);
+    background-color: #f8f9fa;
+    padding: 40px 20px;
+}
+
+.donate-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 60px;
+    align-items: start;
+}
+
+/* Left Section - Donation Form */
+.donation-form-section {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 32px;
+}
+
+/* Amount Options */
+.amount-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.amount-btn {
+    position: relative;
+    padding: 20px;
+    border: 2px solid #e5e7eb;
+    background: white;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.amount-btn:hover {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.05);
+}
+
+.amount-btn.selected {
+    border-color: #ef4444;
+    background: #ef4444;
+    color: white;
+}
+
+.amount-btn.popular {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.05);
+    color: #ef4444;
+}
+
+.amount-btn.popular.selected {
+    background: #ef4444;
+    color: white;
+}
+
+.popular-label {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ef4444;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 12px;
+    white-space: nowrap;
+}
+
+.amount-btn.popular.selected .popular-label {
+    background: white;
+    color: #ef4444;
+}
+
+/* Custom Amount */
+.custom-amount-section {
+    margin-bottom: 32px;
+}
+
+.custom-amount-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.currency-symbol {
+    position: absolute;
+    left: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #666;
+    z-index: 2;
+}
+
+.amount-input {
+    width: 100%;
+    padding: 16px 16px 16px 40px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.amount-input:focus {
+    outline: none;
+    border-color: #ef4444;
+}
+
+.amount-input::placeholder {
+    color: #9ca3af;
+}
+
+/* Give Tip Section */
+.give-tip-section {
+    margin-bottom: 32px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.tip-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tip-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.tip-percentage {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.tip-percentage:hover {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.tip-percent {
+    font-size: 14px;
+    font-weight: 500;
+    color: #ef4444;
+}
+
+.tip-percentage svg {
+    width: 12px;
+    height: 8px;
+    color: #ef4444;
+}
+
+.tip-amount {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Location Info */
+.location-info {
+    margin-bottom: 40px;
+}
+
+.location-check {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.location-check svg {
+    width: 16px;
+    height: 16px;
+    color: #22c55e;
+    flex-shrink: 0;
+}
+
+.location-check span {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.location-desc {
+    font-size: 14px;
+    color: #666;
+    margin-left: 28px;
+    margin: 0;
+}
+
+/* Donor Details */
+.details-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 24px;
+}
+
+.donor-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 14px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #333;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9ca3af;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Anonymous Option */
+.anonymous-option {
+    margin-top: 8px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+}
+
+.checkbox-container input[type="checkbox"] {
+    display: none;
+}
+
+.checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #e5e7eb;
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.checkbox-container input[type="checkbox"]:checked + .checkmark {
+    background-color: #ef4444;
+    border-color: #ef4444;
+}
+
+.checkbox-container input[type="checkbox"]:checked + .checkmark::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Right Section - Summary */
+.donation-summary-section {
+    position: sticky;
+    top: 40px;
+}
+
+.cause-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cause-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.cause-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.foundation-logo {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.foundation-logo img {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+
+.cause-content {
+    padding: 20px;
+}
+
+.cause-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Donation Summary */
+.donation-summary {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.summary-row:last-child {
+    margin-bottom: 0;
+}
+
+.summary-label {
+    font-size: 14px;
+    color: #666;
+}
+
+.summary-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.summary-divider {
+    height: 1px;
+    background: #e5e7eb;
+    margin: 16px 0;
+}
+
+.summary-row.total .summary-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.summary-row.total .summary-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+/* Tax Certificate */
+.tax-certificate {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.certificate-check {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.certificate-check svg {
+    width: 16px;
+    height: 16px;
+    color: #6b7280;
+    flex-shrink: 0;
+}
+
+.certificate-check span {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.4;
+}
+
+/* Proceed Button */
+.proceed-btn {
+    width: 100%;
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.proceed-btn:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(239, 68, 68, 0.3);
+}
+
+.proceed-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.security-note {
+    text-align: center;
+    font-size: 12px;
+    color: #9ca3af;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .donate-container {
+        grid-template-columns: 1fr 350px;
+        gap: 40px;
+    }
+    
+    .donation-form-section {
+        padding: 32px;
+    }
+}
+
+@media (max-width: 992px) {
+    .header-actions {
+        display: none;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .donate-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    
+    .donation-summary-section {
+        position: static;
+        order: 1;
+    }
+    
+    .donation-form-section {
+        order: 0;
+    }
+    
+    .amount-options {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .amount-btn {
+        padding: 16px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .donate-main {
+        padding: 20px 15px;
+    }
+    
+    .donation-form-section {
+        padding: 24px;
+    }
+    
+    .section-title {
+        font-size: 20px;
+        margin-bottom: 24px;
+    }
+    
+    .amount-options {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .amount-btn {
+        padding: 14px;
+        font-size: 16px;
+    }
+    
+    .popular-label {
+        font-size: 11px;
+        padding: 3px 10px;
+    }
+    
+    .tip-header {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .cause-image {
+        height: 160px;
+    }
+    
+    .cause-content {
+        padding: 16px;
+    }
+    
+    .cause-title {
+        font-size: 14px;
+    }
+    
+    .donation-summary {
+        padding: 20px;
+    }
+    
+    .tax-certificate {
+        padding: 16px;
+    }
+    
+    .proceed-btn {
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .donate-main {
+        padding: 15px 10px;
+    }
+    
+    .donation-form-section {
+        padding: 20px;
+    }
+    
+    .section-title {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    
+    .amount-btn {
+        padding: 12px;
+        font-size: 15px;
+    }
+    
+    .amount-input {
+        padding: 12px 12px 12px 36px;
+        font-size: 14px;
+    }
+    
+    .currency-symbol {
+        left: 12px;
+        font-size: 14px;
+    }
+    
+    .give-tip-section {
+        padding: 16px;
+    }
+    
+    .tip-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 12px 14px;
+        font-size: 13px;
+    }
+    
+    .cause-image {
+        height: 140px;
+    }
+    
+    .donation-summary {
+        padding: 16px;
+    }
+    
+    .summary-label {
+        font-size: 13px;
+    }
+    
+    .summary-value {
+        font-size: 15px;
+    }
+    
+    .summary-row.total .summary-value {
+        font-size: 16px;
+    }
+    
+    .proceed-btn {
+        padding: 12px 18px;
+        font-size: 14px;
+    }
+}
