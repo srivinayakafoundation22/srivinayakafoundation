@@ -1,27 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://srivinayakafoundation.org/donate.html</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://srivinayakafoundation.org/</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://srivinayakafoundation.org/causes.html</loc>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://srivinayakafoundation.org/achievements.html</loc>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://srivinayakafoundation.org/certifications.html</loc>
-    <priority>0.80</priority>
-  </url>
-   <url>
-    <loc>https://srivinayakafoundation.org/index.html/</loc>
-    <priority>0.90</priority>
-  </url>
+
+    <!-- Homepage - Highest Priority -->
+    <url>
+        <loc>https://srivinayakafoundation.org/</loc>
+        <lastmod>2025-08-22</lastmod>
+        <priority>1.00</priority>
+    </url>
+
+    <!-- Main Navigation Pages -->
+    <url>
+        <loc>https://srivinayakafoundation.org/donate.html</loc>
+        <lastmod>2025-08-22</lastmod>
+        <priority>0.90</priority>
+    </url>
+    <url>
+        <loc>https://srivinayakafoundation.org/causes.html</loc>
+        <lastmod>2025-08-22</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://srivinayakafoundation.org/achievements.html</loc>
+        <lastmod>2025-08-22</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://srivinayakafoundation.org/certifications.html</loc>
+        <lastmod>2025-08-22</lastmod>
+        <priority>0.80</priority>
+    </url>
+
 </urlset>
