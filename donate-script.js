@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     amountInput.addEventListener('input', function() {
         const customAmount = parseInt(this.value);
-        if (customAmount && customAmount >= 300) {
+        if (customAmount && customAmount >= 0) {
             amountButtons.forEach(btn => btn.classList.remove('selected'));
             currentAmount = customAmount;
             updateSummary();
