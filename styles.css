@@ -4558,3 +4558,36 @@ button:focus,
     filter: contrast(110%) brightness(105%) saturate(110%);
     image-rendering: -webkit-optimize-contrast; /* Optional, mostly affects still images */
 }
+
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allows links to stack on small screens */
+    gap: 12px 24px; /* Vertical and horizontal gap between links */
+    margin: 32px 0;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Separator line */
+}
+
+.footer-links a {
+    color: #ccc; /* Light grey color for links */
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: white; /* Brighter color on hover */
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .footer-links {
+        flex-direction: column; /* Stack links vertically */
+        gap: 15px; /* Adjust vertical gap */
+        align-items: center;
+    }
+}
