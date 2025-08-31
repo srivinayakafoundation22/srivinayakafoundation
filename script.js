@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             switch(platform) {
                 case 'facebook':
-                    url = 'https://facebook.com/srivinayakafoundation';
+                    url = 'https://www.facebook.com/share/1DEVAMXPMC/';
                     break;
                 case 'instagram':
                     url = 'https://instagram.com/srivinayakafoundation';
