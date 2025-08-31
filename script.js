@@ -910,7 +910,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             switch(optionType) {
                 case 'whatsapp':
-                    window.open('https://wa.me/919876543210', '_blank');
+                    window.open('https://wa.me/919949658274', '_blank');
                     break;
                 case 'instagram':
                     window.open('https://instagram.com/srivinayakafoundation', '_blank');
@@ -922,7 +922,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     window.location.href = 'mailto:office@vinayaka.foundation';
                     break;
                 case 'address':
-                    window.open('https://maps.google.com/?q=No.6,+Dhanammal+Street,+Spurtank+Road,+Chetpet,+Chennai+600-031', '_blank');
+                    window.open('https://maps.app.goo.gl/bX8As1DMaBdam83B6', '_blank');
                     break;
             }
             
